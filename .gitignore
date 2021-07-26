@@ -1,0 +1,14 @@
+logs
+target
+.bsp
+.metals
+.bloop
+.vscode
+.ammonite
+.idea
+.idea_modules
+.classpath
+.project
+.settings
+/RUNNING_PID
+metals.sbt
