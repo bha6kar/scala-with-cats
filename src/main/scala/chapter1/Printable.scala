@@ -23,7 +23,7 @@ object PrintableInstances {
 object Printable {
   def format[A](value: A)(implicit valuePrinter: Printable[A]) = valuePrinter.format(value)
 
-  def print[A](value: A)(implicit valuePrinter: Printable[A]) = println(valuePrinter.format(value))
+  def print[A](value: A)(implicit valuePrinter: Printable[A]) = println(s"Print from Printable: ${valuePrinter.format(value)}")
 }
 
 object PrintableSyntax {
@@ -31,7 +31,7 @@ object PrintableSyntax {
   implicit class PrintableOps[A](value: A) {
     def format(implicit printable: Printable[A]): String = printable.format(value)
 
-    def print(implicit printable: Printable[A]): Unit = println(printable.format(value))
+    def print(implicit printable: Printable[A]): Unit = println(s"Print from Print syntax option: ${printable.format(value)}")
   }
 
 }

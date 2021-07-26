@@ -16,7 +16,7 @@ object Chapter1 extends App {
   cat.print
 
   // using cat's Show
-  implicit val catShow: Show[Cat] = Show.show[Cat](cat => s"${cat.name} is a ${cat.age} year-old ${cat.color} cat.")
+  implicit val catShow: Show[Cat] = Show.show[Cat](cat => s"Print from show: ${cat.name} is a ${cat.age} year-old ${cat.color} cat.")
   println(cat.show)
 
   // equality exercise
@@ -32,9 +32,9 @@ object Chapter1 extends App {
     equalName && equalAge && equalColor
   })
 
-  println(cat1 === cat1) // true
-  println(cat1 === cat2) // false
-  println(optionCat1 === optionCat2) // false
-  println(optionCat2 === none[Cat]) // true
+  println(s"c1 === c1: ${cat1 === cat1}") // true
+  println(s"c1 === c2: ${cat1 === cat2}") // false
+  println(s"oc1 === oc2: ${optionCat1 === optionCat2}") // false
+  println(s"oc2 === none: ${optionCat2 === none[Cat]}") // true
 
 }
