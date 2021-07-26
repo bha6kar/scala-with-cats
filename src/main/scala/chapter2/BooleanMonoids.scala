@@ -1,7 +1,7 @@
 package chapter2
 
 trait Semigroup[A] {
-  def combine(a1: A, a2: A): A
+  def combine(a: A, b: A): A
 }
 
 trait MyMonoid[A] extends Semigroup[A] {
@@ -13,28 +13,28 @@ object BooleanMonoids {
 
   implicit val and: MyMonoid[Boolean] =
     new MyMonoid[Boolean] {
-      override def combine(a1: Boolean, a2: Boolean) = a1 && a2
+      override def combine(a: Boolean, b: Boolean) = a && b
 
       override def empty = true
     }
 
   implicit val or: MyMonoid[Boolean] =
     new MyMonoid[Boolean] {
-      override def combine(a1: Boolean, a2: Boolean) = a1 || a2
+      override def combine(a: Boolean, b: Boolean) = a || b
 
       override def empty = false
     }
 
   implicit val xor: MyMonoid[Boolean] =
     new MyMonoid[Boolean] {
-      override def combine(a1: Boolean, a2: Boolean) = !(a1 && a2) && (a1 || a2)
+      override def combine(a: Boolean, b: Boolean) =  (a && !b) || (!a && b)
 
       override def empty = false
     }
 
-  implicit val nxor: MyMonoid[Boolean] =
+  implicit val xnor: MyMonoid[Boolean] =
     new MyMonoid[Boolean] {
-      override def combine(a1: Boolean, a2: Boolean) = !(a1 || a2) || (a1 && a2)
+      override def combine(a: Boolean, b: Boolean) = (!a || b) && (a || !b)
 
       override def empty = true
     }
