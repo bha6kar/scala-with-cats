@@ -16,7 +16,8 @@ object Chapter1 extends App {
   cat.print
 
   // using cat's Show
-  implicit val catShow: Show[Cat] = Show.show[Cat](cat => s"Print from show: ${cat.name} is a ${cat.age} year-old ${cat.color} cat.")
+  implicit val catShow: Show[Cat] =
+    Show.show[Cat](cat => s"Print from show: ${cat.name} is a ${cat.age} year-old ${cat.color} cat.")
   println(cat.show)
 
   // equality exercise

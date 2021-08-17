@@ -27,7 +27,7 @@ object BooleanMonoids {
 
   implicit val xor: MyMonoid[Boolean] =
     new MyMonoid[Boolean] {
-      override def combine(a: Boolean, b: Boolean) =  (a && !b) || (!a && b)
+      override def combine(a: Boolean, b: Boolean) = (a && !b) || (!a && b)
 
       override def empty = false
     }
